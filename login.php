@@ -10,11 +10,12 @@ if ($username === 'admin' && $password === 'admin') {
     echo 'ログイン成功！';
     sleep(3);
     // 元の画面にリダイレクト
-    header('Location: Example.html');
+    header('Location: FinalEdit.html');
     exit; // リダイレクト後にスクリプトの実行を終了する
 } else {
     // ログイン失敗時の処理
     echo 'ユーザー名またはパスワードが間違っています。';
+    header('Location: Example.html');
     exit;
 }
 ?>
