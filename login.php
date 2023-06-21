@@ -1,10 +1,24 @@
 <?php
 // フォームから送信されたデータを受け取る
-$username = $_POST['username'];
-$password = $_POST['password'];
+$usr = $_POST['username'];
+$pwd = $_POST['password'];
+
+$jsonString = file_get_contents('./data/user.json');
+
+$userData = json_decode($jsonString, true); //$userData is an array// 
+
+//login flag
+$loginFlag = false;
+
+for ($i=0; $i < count($userData) ; $i++) {
+  if($userData[$i]['username'] == $usr && $userData[$i]['password'] == $pwd){
+    // echo "Login Successful / user:".$usr;
+    $loginFlag = true;
+  }
+}
 
 // ユーザー名とパスワードの検証ロジックを実装
-if ($username === 'admin' && $password === 'admin') {
+if ($loginFlag) {
   // ログイン成功時の処理
   // セッションの開始や認証情報の保存などを行う
     echo 'ログイン成功！';
@@ -15,7 +29,7 @@ if ($username === 'admin' && $password === 'admin') {
 } else {
     // ログイン失敗時の処理
     echo 'ユーザー名またはパスワードが間違っています。';
-    header('Location: Example.html');
+    header('Location: Alpha.html');
     exit;
 }
 ?>
