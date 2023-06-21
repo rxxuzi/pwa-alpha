@@ -1,0 +1,45 @@
+/* .ui0{
+    background-color: chartreuse;
+    width: 500px;
+} */
+
+.title{
+    color: tomato;
+    display: block;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+}
+
+#table{
+    color: black;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.main{
+    /* height: 200px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-main{
+    justify-self: center;
+    display:flex;
+}
+
+#index_png img{
+    object-position: right 100px bottom 50px;
+    border-radius: 20px 30px 50% 10%;
+}

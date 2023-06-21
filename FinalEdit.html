@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>edit</title>
+        <script src="./src/jquery-1.8.1.min.js"></script>
+        <script src="./src/jquery.validate.min.js"></script>
+        <script src="Edit.js"></script>
+        <link href="./src/Edit.js" rel="stylesheet" type="text/css">
+        <link href="./style.css" rel="stylesheet" type="text/css">
+    </head>
+<body>
+    <h1 class="title">EDIT PAGE</h1>
+    <div class="c">
+        <form>
+            <table id="table" border="1">
+                <tr>
+                    <td>NAME</td><td>LIMIT</td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="name" class="name" ></td>
+                    <td><input type="number" id="lim" class="lim" ></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <p>
+        <input type="button" value="INPUT FORM" id="idx">
+    </p>
+
+    <div class="c">
+        <form action="login.php" method="post">
+            <label for="username">username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit" value="login">
+        </form>
+    </div>
+    <p>
+        <label><input type="text" value="0" id="nText"></label>
+        <input type="button" value="Check" id="checkButton">
+    </p>
+    <p id="msg"></p>
+    <script>
+        function buttonClick(){
+            msg.innerText = 'Your number is ' + nText.value ;
+        }
+        var nText = document.getElementById('nText');
+        let checkButon = document.getElementById('checkButton');
+        checkButton.addEventListener('click', buttonClick);
+    </script>
+</body>
+</html>
