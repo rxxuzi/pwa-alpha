@@ -7,6 +7,6 @@ echo "Starting the server..."
 ls
 
 #press enter to stop the server
-httpd.exe
+httpd
 
 read -p "Press enter to stop the server"

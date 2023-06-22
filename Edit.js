@@ -18,10 +18,10 @@ function save_data(arg){
         data: arg,
         //try.catch
         success: function(){
-        alert('データを保存しました。');
+        alert('Data saved.');
         },
         error:function(){
-        alert('データの保存に失敗しました。');
+        alert('Data saving failed.');
         }
     });
 }
