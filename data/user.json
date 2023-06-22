@@ -1,10 +1,10 @@
 [
     {
         "username" : "admin",
-        "password" : "admin"
+        "password" : "$2y$10$kRCP2SU7TslRKHWWOvDKCeVLQnSWxXx8HJWVRh1\/BosazSs9kxJAu"
     },
     {
-        "username" : "user0",
-        "password" : "pswrd"
+        "username" : "admin2",
+        "password" : "$2y$10$WxFP4d5o.Q1qY7cE76BbmO3E4u8aAtkar68H2sZjVMwWO92m5lHpW"
     }
 ]

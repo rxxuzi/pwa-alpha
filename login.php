@@ -10,8 +10,13 @@ $userData = json_decode($jsonString, true); //$userData is an array//
 //login flag
 $loginFlag = false;
 
+//password_verify($pwd, $hashedPassword)
+
 for ($i=0; $i < count($userData) ; $i++) {
-  if($userData[$i]['username'] == $usr && $userData[$i]['password'] == $pwd){
+  
+  $hashedPassword = $userData[$i]['password'];
+
+  if($userData[$i]['username'] == $usr && password_verify($pwd, $hashedPassword)){
     // echo "Login Successful / user:".$usr;
     $loginFlag = true;
   }

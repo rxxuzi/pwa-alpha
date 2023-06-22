@@ -15,7 +15,7 @@ body {
     box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
 }
 
-.input{
+input{
     /* background-color: black; */
     background-image: linear-gradient(0deg, #a7d9f5, #eaf6fd); /* グラデーション */
     border: 1px solid #3c7fb1; /* 枠線 */
@@ -23,14 +23,14 @@ body {
     
 }
 
-input:hover {
+.login-btn:hover {
     /* マウスが上に載ったとき */
     background-image: linear-gradient(0deg, #68d3db, #e5f4fc);
     /* background-image: linear-gradient(0deg, #68d3db, #000); */
     border: 1px solid #2c628b;
 }
 
-.input:active {
+.login-btn:active {
     /* 押されたとき */
     background-image: linear-gradient(180deg, #68d3db, #e5f4fc);
     border: 1px solid skyblue;
@@ -44,10 +44,10 @@ a:link, a:visited {
 
 
 .login-btn{
-    width: 50%;
-    min-width: 50px;
+    width: 25%;
+    min-width: 10px;
     max-width: 100px;
-    height: 50%;
+    height: 25%;
     padding: 10px;
     box-sizing: border-box;
     background: #cbe8fa;
