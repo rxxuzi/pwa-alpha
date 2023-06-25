@@ -8,7 +8,8 @@ $(function(){
         save_data(NodeData);//save_dataにNodeDataを渡す
     });
 });
-/*書き込み用関数
+/*
+    書き込み用関数
 */
 function save_data(arg){
     //ajaxはjsonはつかさどるライブラリ

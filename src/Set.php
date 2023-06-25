@@ -1,7 +1,7 @@
 <?php
     // $password = $_POST['password']; // フォームからのパスワード入力を取得
     $username = "admin";
-    $password = "admin";
+    $password = "minoD";
 
     // パスワードをハッシュ化して保存
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
