@@ -5,42 +5,29 @@ const pw = document.getElementById('password') as HTMLInputElement;
 
 const msg = document.getElementById('msg');
 
-function checkPassword() {
-    if(msg != null){
+function getIp() {
+    fetch('https://api.ipify.org/?format=json') //api取得
+        .then(response => response.json())
+        .then(data => {
+            const ipAddress = data.ip;
+            const currentDate = new Date();
+            const currentTime = currentDate.toLocaleTimeString();
 
-        if (pw != null && un != null) {
+            const logData = "ip : " + ipAddress + ", time : " + currentTime + ", name : " + un.value; //log書き込み用変数
+            save(logData);
+            login = true;
+        })
 
-            if (un.value == "admin" && pw.value == "admin") {
+        .catch(error => {
 
-                msg.innerHTML = "Login successful";
 
-                fetch('https://api.ipify.org/?format=json') //api取得
-                    .then(response => response.json())
-                    .then(data => {
-                        const ipAddress = data.ip;
-                        const currentDate = new Date();
-                        const currentTime = currentDate.toLocaleTimeString();
-
-                        const logData = "ip : " + ipAddress + ", time : " + currentTime + ", name : " + un.value; //log書き込み用変数
-
-                        console.log(logData);
-                        // save(logData); あとで直す
-                        login = true;
-
-                    })
-                    .catch(error => {
-                        console.error('IPアドレスの取得中にエラーが発生しました:', error);
-                    });
-
-            }else{
-                cnt++;
-                login = false;
-                msg.innerHTML = "Login failed";
-            }
-        }
-    }
+            console.error('IPアドレスの取得中にエラーが発生しました:', error);
+        });
 }
 
 login = false; //ログインできたかのフラグ
 var cnt = 0;
-let checkButon = document.getElementById('chkBtn');
+
+function save(data : string){
+    //
+}
