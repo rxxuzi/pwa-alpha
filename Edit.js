@@ -32,7 +32,8 @@ $.ajax({
     url: './data/data.json',
     cache : false,
     dataType : 'json',
-    /*成功した場合の流れ
+    /*
+    成功した場合の流れ
     まずjsonファイルからnameタグとlimタグのvalueを抜き出す
     */
     success: function(data) {
