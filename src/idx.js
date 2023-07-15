@@ -1,81 +1,68 @@
 let main = document.createElement("div");
 
-const table_cnt = 5;
-
-let table = document.createElement("table");
-table.id = "table";
-main.appendChild(table);
-
-let thead = document.createElement("thead");
-table.appendChild(thead);
-let tr = document.createElement("tr");
-thead.appendChild(tr);
-let th = document.createElement("th");
-th.textContent = "SAMPLE TABLE";
-th.colSpan = 2;
-tr.appendChild(th);
-
-let tbody = document.createElement("tbody");
-table.appendChild(tbody);
-
-let ex_tr = document.createElement("tr")
-//array elements
-// let tr_arr = document.createElement("tr")[table_cnt];
-let tr_arr = [];
-tr_arr = document.createElement("tr");
-
-let name_td = document.createElement("td");
-name_td.id = "name";
-name_td.textContent = "SAMPLE NAME"
-let lim_td = document.createElement("td");
-lim_td.id = "limit";
-lim_td.textContent = "SAMPLE LIMIT";
-
-
-ex_tr.appendChild(name_td);
-ex_tr.appendChild(lim_td);
-
-
-tbody.appendChild(ex_tr);
-
-
-
-
-
-
-let num;
-for (let i = 0; i < table_cnt; i++) {
-    // new_td(i);
-    let index_name = document.createElement("td");
-    let index_limit = document.createElement("td");
-    let delete_btn = document.createElement("button");
-    delete_btn.textContent = "delete";
-    delete_btn.id = "btn"+i;
-    delete_btn.addEventListener("click", function () {
-        let tr = document.getElementById(i);
-        tr_arr[i].parentNode.removeChild(tr);
-    });
-
-    num = ((10 % i) * 100 + 100)
-    index_name.textContent = "sample name : " + i;
-    index_limit.textContent = "sample limit : " + num;
-
-    if(tr_arr[i]){
-        tr_arr[i].appendChild(index_name);
-        tr_arr[i].appendChild(index_limit);
-        tr_arr[i].appendChild(delete_btn);
-        tbody.appendChild(tr_arr[i]);
-    }
-}
-// tbody.appendChild(tr_arr);
-
-
-function reload_table(){
-    tbody.innerHTML = "";
-    for (let i = 0; i < tr_arr.length; i++) {
-        tbody.appendChild(tr_arr[i]);
-    }
-}
+// const table_cnt = 5;
+//
+// let table = document.createElement("table");
+// table.id = "table";
+// main.appendChild(table);
+//
+// let thead = document.createElement("thead");
+// table.appendChild(thead);
+// let headtr = document.createElement("headtr");
+// thead.appendChild(headtr);
+// let th = document.createElement("th");
+// th.textContent = "SAMPLE TABLE";
+// th.colSpan = 2;
+// headtr.appendChild(th);
+//
+// let tbody = document.createElement("tbody");
+// table.appendChild(tbody);
+//
+// //array elements
+// // let tr_arr = document.createElement("tr")[table_cnt];
+// let ex_tr = document.createElement("tr");
+//
+// let name_td = document.createElement("td");
+// name_td.textContent = "SAMPLE NAME"
+// let lim_td = document.createElement("td");
+// lim_td.textContent = "SAMPLE LIMIT";
+//
+//
+// ex_tr.appendChild(name_td);
+// ex_tr.appendChild(lim_td);
+//
+//
+// tbody.appendChild(ex_tr);
+//
+// let tr =  document.createElement("tr");
+//
+// let name = document.createElement("td");
+// let in_name = document.createElement("input");
+// in_name.type = "text";
+// in_name.placeholder = "SAMPLE NAME";
+// in_name.style.width = "100%";
+// in_name.id = "name";
+// in_name.className = "name";
+// name.appendChild(in_name);
+// let name_label = document.createElement("label");
+// name_label.htmlFor = "name";
+//
+// let lim = document.createElement("td");
+// let in_lim = document.createElement("input");
+// in_lim.type = "number";
+// in_lim.placeholder = "SAMPLE LIMIT";
+// in_lim.style.width = "100%";
+// in_lim.id = "lim";
+// in_lim.className = "lim";
+// lim.appendChild(in_lim);
+// let lim_label = document.createElement("label");
+// lim_label.htmlFor = "lim";
+//
+// tr.appendChild(name);
+// tr.appendChild(name_label);
+//
+// tbody.appendChild(tr);
+//
 
 
 let h = document.createElement("h1");
