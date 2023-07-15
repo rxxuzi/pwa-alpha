@@ -20,8 +20,9 @@ table.appendChild(tbody);
 
 let ex_tr = document.createElement("tr")
 //array elements
-let tr_arr = document.createElement("tr")[table_cnt];
-// tr_arr = document.createElement("tr");
+// let tr_arr = document.createElement("tr")[table_cnt];
+let tr_arr = [];
+tr_arr = document.createElement("tr");
 
 let name_td = document.createElement("td");
 name_td.id = "name";
@@ -47,13 +48,13 @@ for (let i = 0; i < table_cnt; i++) {
     // new_td(i);
     let index_name = document.createElement("td");
     let index_limit = document.createElement("td");
-    // let delete_btn = document.createElement("button");
-    // delete_btn.textContent = "delete";
-    // delete_btn.id = "btn"+i;
-    // delete_btn.addEventListener("click", function () {
-    //     let tr = document.getElementById(i);
-    //     tr_arr[i].parentNode.removeChild(tr);
-    // });
+    let delete_btn = document.createElement("button");
+    delete_btn.textContent = "delete";
+    delete_btn.id = "btn"+i;
+    delete_btn.addEventListener("click", function () {
+        let tr = document.getElementById(i);
+        tr_arr[i].parentNode.removeChild(tr);
+    });
 
     num = ((10 % i) * 100 + 100)
     index_name.textContent = "sample name : " + i;
@@ -62,10 +63,11 @@ for (let i = 0; i < table_cnt; i++) {
     if(tr_arr[i]){
         tr_arr[i].appendChild(index_name);
         tr_arr[i].appendChild(index_limit);
-        // tr_arr[i].appendChild(delete_btn);
+        tr_arr[i].appendChild(delete_btn);
+        tbody.appendChild(tr_arr[i]);
     }
 }
-tbody.appendChild(tr_arr);
+// tbody.appendChild(tr_arr);
 
 
 function reload_table(){
@@ -77,9 +79,10 @@ function reload_table(){
 
 
 let h = document.createElement("h1");
-h.textContent = "SAMPLE TABLE";
+h.textContent = "EDIT WEBSITE";
 h.style.textAlign = "center";
-h.style.color = "red";
+h.style.color = "05ffff";
+h.style.fontFamily = "serif";
 h.style.fontSize = "50px";
 h.style.fontWeight = "bold";
 h.style.marginTop = "50px";
@@ -87,9 +90,9 @@ h.style.marginBottom = "50px";
 h.style.border = "solid black";
 h.style.borderRadius = "20px";
 h.style.padding = "20px";
-h.style.backgroundColor = "yellow";
+h.style.backgroundColor = "ff05ff";
 h.style.boxShadow = "0 0 10px black";
-h.style.width = "100%";
+h.style.width = "50%";
 h.style.height = "100px";
 h.style.display = "flex";
 h.style.justifyContent = "center";
@@ -101,30 +104,40 @@ h.style.left = "0px";
 h.style.zIndex = "1";
 h.style.transition = "all 1s";
 h.style.cursor = "pointer";
-updown = false;
+h.style.transition = "all 1s";
+
+let cnt= false;
+
 h.addEventListener("click", function () {
-    updown = !updown;
-    if(updown){
-        h.style.top = "0px";
+
+    if(cnt){
+        h.style.top = "300px";
         h.style.left = "0px";
         h.style.zIndex = "1";
-        h.style.transition = "all 1s";
         h.style.cursor = "pointer";
     }else{
-        h.style.top = "-100px";
+        h.style.top = "-300px";
         h.style.left = "0px";
         h.style.zIndex = "0";
-        h.style.transition = "all 1s";
         h.style.cursor = "default";
     }
+    cnt  = !cnt;
 });
 
 h.addEventListener("mouseover", function () {
-    h.style.backgroundColor = "red";
+    h.style.backgroundColor = "05ffff";
 });
 h.addEventListener("mouseout", function () {
-    h.style.backgroundColor = "yellow";
+    h.style.backgroundColor = "ff05ff";
+});
+h.addEventListener("mousedown", function () {
+    h.style.backgroundColor = "ffff05";
 });
 
+
 main.appendChild(h);
+main.style.alignItems = "center";
+main.style.justifyContent = "center";
+main.style.display = "flex";
+main.style.flexDirection = "column";
 document.body.appendChild(main);
