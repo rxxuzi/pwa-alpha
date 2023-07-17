@@ -38,6 +38,7 @@ done
 # then run the server
 if [ $yn = "yes" ]; then
     echo "Apache Server Running"
+    echo "Stop the server -> CTRL + C"
     # shellcheck disable=SC2164
     cd C:/Apache/Apache24/bin/
     ./httpd.exe
