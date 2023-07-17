@@ -5,7 +5,6 @@ for i in $(seq 1 10); do
     if [ -d alpha ]; then
         # shellcheck disable=SC2164
         cd alpha
-        echo "alpha directory exists" >> now.txt
         break
     fi
     cd ..
