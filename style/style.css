@@ -44,9 +44,9 @@ body{
     align-items: center;
     justify-content: center; */
 
-    background-image: linear-gradient(0deg, #a7d9f5, #eaf6fd); /* グラデーション */
+    /* グラデーション */
     border: 1px solid #3c7fb1; /* 枠線 */
-    border-radius: 0.1em;      /* 角丸 */
+    /* 角丸 */
 
     width: 120%;
     min-width: 50px;
@@ -55,10 +55,10 @@ body{
     padding: 10px;
 
     box-sizing: border-box;
-    background: #cbe8fa;
+    background: #cbe8fa linear-gradient(0deg, #a7d9f5, #eaf6fd);
     cursor: pointer;
     color: #38488f;
-    border: 1px solid #3c7fb1; /* 枠線 */
+    /* 枠線 */
     border-radius: 0.3em; 
 }
 
