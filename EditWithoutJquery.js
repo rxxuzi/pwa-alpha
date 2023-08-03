@@ -18,6 +18,8 @@
 document.addEventListener("DOMContentLoaded", function(){
     const idxButton = document.getElementById("idx");
     idxButton.addEventListener("click", function(event){
+        // webstormはfunction(event)のeventが未使用なパラメータとしてエラーを吐いている
+        // しかしクリックイベントが発生したときのイベントオブジェクトを表すから必要な変数だと思われる
         const nameValue = document.querySelector(".name").value;
         const limValue = document.querySelector(".lim").value;
 
