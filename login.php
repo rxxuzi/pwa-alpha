@@ -34,7 +34,7 @@ if ($loginFlag) {
 } else {
     // ログイン失敗時の処理
     echo 'ユーザー名またはパスワードが間違っています。';
-    header('Location: Alpha.html');
+    header('Location: index.html');
     exit;
 }
 ?>

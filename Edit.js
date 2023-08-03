@@ -19,10 +19,11 @@ function save_data(arg){
         data: arg,
         //try.catch
         success: function(){
-        alert('Data saved.');
+        // alert('Data saved.');
+            console.log('Data Saved');
         },
         error:function(){
-        alert('Data saving failed.');
+            alert('Data saving failed.');
         }
     });
 }
