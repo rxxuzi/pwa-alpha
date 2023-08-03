@@ -19,8 +19,6 @@ function getIp() {
         })
 
         .catch(error => {
-
-
             console.error('IPアドレスの取得中にエラーが発生しました:', error);
         });
 }

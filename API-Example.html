@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>Fetch API Example</title>
+</head>
+<body>
+<div class="time">Loading...</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    fetchData();
+  });
+
+  function fetchData() {
+    fetch('https://api.example.com/time') // リクエスト先のURLを適切なものに置き換える
+            .then(response => response.text())
+            .then(data => {
+              const timeDiv = document.querySelector('.time');
+              timeDiv.textContent = data;
+            })
+            .catch(error => {
+              console.error('エラーが発生しました:', error);
+            });
+  }
+</script>
+</body>
+</html>
