@@ -1,21 +1,34 @@
-// jQueryあり、要編集
-// 目標：fetchAPIを使ったTable.jsの実装
-    //ドルマークがついた部分を編集していく
+/**
+ *
+ * jQueryあり、要編集
+ *
+ * 目標：fetchAPIを使ったTable.jsの実装
+ * ドルマークがついた部分を編集していく
+ *  ファイルの挙動としてはここから動き出すはず。
+ *  <p href="https://qiita.com/bakatono_super/items/fcbc828b21599568a597">解説 </p>
+ *  予約状態としての記述と推測。本丸はdocument.addEventListener(~~~~){ の部分と思われる
+ *
+ *  <pre>{Data}</pre>
+ */
 
-// まずはこれの解明。ファイルそのものの関数の動きを把握する
-$(function(){
-    load_data();
-});
-
-// アロー演算子自体は無名関数などに用いる
 document.addEventListener("DOMContentLoaded" , ()=>{
+// アロー演算子自体は無名関数などに用いる
     load_data();
 });
+
+// このclass Dataはデータ置き場として使う
+class Data{
+    static lim = 0; // 制限値
+    static val = 0; // メーター値
+}
 
 /**
+ * 元のコード
+ * <pre>{
  * document.addEventListener("DOMContentLoaded", function() {
  *       load_data();
  *     });
+ * </pre>
  */
 
 const loadInterval = 300;
@@ -41,17 +54,7 @@ function refreshImage() {
     imgElement.src = `${url}?v=${Math.random()}`;
 }
 
-function fetchValues() {
-    const valElement = document.querySelector(".val");
-    const limElement = document.querySelector(".lim");
 
-    const val = Number(valElement.textContent);
-    const lim = Number(limElement.textContent);
-
-    // 以下は、取得した val と lim の値を使って任意の処理を行う例
-    console.log("val:", val);
-    console.log("lim:", lim);
-}
 
 /**
  * 比較して色を変える
@@ -59,16 +62,17 @@ function fetchValues() {
  * @param v value
  * @param l limit
  */
-function switchColor(v,l){
+function switchColor(){
     // valueがlimitを超えたときにtr部分を赤くする処理
     const tableRow = document.querySelector("#table_tr");
-    if (v >= l) {
+    if (Data.val >= Data.lim) {
         tableRow.style.backgroundColor = "red";
     } else {
         tableRow.style.backgroundColor = "";
     }
 }
 
+// ここがはじまり
 function load_data(){
 
     loadTime();
@@ -80,11 +84,10 @@ function load_data(){
     //jsonから値を取得する関数
     m_limit();
     m_value();
-    //小数点もok
 
-    fetchValues();
     refreshImage();
-    switchColor(val,lim);
+    // static から値を呼び出すのでパラメーターは削除
+    switchColor();
 
 }
 
@@ -104,7 +107,8 @@ function m_limit() {
             nameElement.textContent = data["name"];
             limElement.textContent = data["lim"];
 
-            return Number(data["lim"]);
+            //static lim (number) に代入
+            Data.lim =  Number(data["lim"]);
         })
         .catch(error => {
             console.error('エラーが発生しました:', error);
@@ -113,34 +117,34 @@ function m_limit() {
 }
 
 
-//TODO
-function m_value(){
-    /* valueのjsonファイルを参照*/
-$.ajax({
-    url: './data/value.json',
-    cache : false,
-    dataType : 'json',
-    
-    success: function(data) {
-        $(".val").text(data);
-        return Number(data);
-    },
-    //エラー時にリロードする
-    error: function( data ) {
-        location.reload()
-    }
-});
+
+function m_value() {
+    fetch('./data/value.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const valElement = document.querySelector(".val");
+            valElement.textContent = data;
+            Data.val =  Number(data);
+        })
+        .catch(error => {
+            // .then の 投げられたエラー(throw new Error('~~~');) をここで表示
+            console.error('エラーが発生しました:', error);
+            location.reload();
+        });
 }
 
-//3000ms毎永遠ループ
-    //雰囲気addEventListener()なやつ
+// 3000ms毎永遠ループ
+// 雰囲気addEventListener()なやつ
 
 /*
-
-var timer_id = setInterval( function () {
-    load_data();
-} , loadInterval);
-
+    var timer_id = setInterval( function () {
+        load_data();
+    } , loadInterval);
  */
 var timer_id = setInterval( () => load_data() , loadInterval);
 
