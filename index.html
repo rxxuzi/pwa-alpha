@@ -13,34 +13,16 @@
             <p><a href="https://github.com/rxxuzi/pwa-alpha">source</a></p>
             <p><a href="FinalIndex.html">Index Page</a></p>
         </div>
-        <div class="main">
-            <form action="login.php" method="post" class="register-form">
-                <div class="login-page">
-                    <label for="username">username:</label>
-                    <input type="text" id="username" name="username" class="input" required placeholder="name"/><br>
-                    <label for="password">password:</label>
-                    <input type="password" id="password" name="password" class="input" required placeholder="password"/><br><br>
-                    <input type="submit" class="login-btn" value="login">
-                </div>
+
+        <div class="form">
+            <form class="login-form" action="login.php" method="post">
+                <input type="text" id="username" name="username" class="input" placeholder="username"/>
+                <input type="password" id="password" name="password" class="input" placeholder="password"/>
+                <button type="submit" class="login-btn" value="login">login</button>
+                <p class="message">Not registered? <a href="#">Create an account</a></p>
             </form>
         </div>
-
         <div class="login-page">
-            <div class="form">
-                <form class="register-form">
-                    <input type="text" placeholder="name"/>
-                    <input type="password" placeholder="password"/>
-                    <input type="text" placeholder="email address"/>
-                    <button>create</button>
-                    <p class="message">Already registered? <a href="#">Sign In</a></p>
-                </form>
-                <form class="login-form">
-                    <input type="text" placeholder="username"/>
-                    <input type="password" placeholder="password"/>
-                    <button>login</button>
-                    <p class="message">Not registered? <a href="#">Create an account</a></p>
-                </form>
-            </div>
         </div>
 
     </body>
