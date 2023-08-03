@@ -4,7 +4,7 @@ This repository is a pwa project for analog meters.
 
 ## COPYRIGHT
 
-Copyright (c) 2023 Rxxuzi. See LICENSE for details.
+Copyright (c) 2023 Rxxuzi. See [LICENSE](LICENSE) for details.
 
 ## 環境
 

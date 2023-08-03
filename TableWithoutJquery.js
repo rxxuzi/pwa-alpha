@@ -34,6 +34,8 @@ class Data{
 const loadInterval = 300;
 
 
+
+
 function loadTime(){
     //時間を取得
     //現在時刻を取得
