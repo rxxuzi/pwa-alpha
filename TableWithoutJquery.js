@@ -46,14 +46,20 @@ function loadTime(){
     const MS = date.getMilliseconds();
     const formattedTime = `${H}h ${M}min ${S}.${MS}sec`;
 
+    // .querySelector : 指定したセレクタを持つエレメントを返す。
+    // 今回の場合はFinalIndex.htmlのなかのセレクタがtimeのエレメントにformattedTimeをテキストとして代入している
     const timeDiv = document.querySelector('.time');
     timeDiv.textContent = formattedTime;
 }
 
 function refreshImage() {
     const imgElement = document.getElementById('index_png');
+    // .src <- HTMLタグの一つ 今回の場合はメーター画像のPATH
     const url = imgElement.src;
     imgElement.src = `${url}?v=${Math.random()}`;
+    // 技術センター 丸野教員談？
+        // 0.3秒毎にリロードってことはDos攻撃に似た状態。
+        // だから対策の意味も込めた記法。
 }
 
 
@@ -66,6 +72,8 @@ function refreshImage() {
  */
 function switchColor(){
     // valueがlimitを超えたときにtr部分を赤くする処理
+        // 今回の場合は表の2行目に指定した id = "table_tr" を指す
+
     const tableRow = document.querySelector("#table_tr");
     if (Data.val >= Data.lim) {
         tableRow.style.backgroundColor = "red";
@@ -80,8 +88,8 @@ function load_data(){
     loadTime();
 
     //valueとlimitの値を取得
-    var val = 0;
-    var lim = 0;
+    // var val = 0;
+    // var lim = 0;
 
     //jsonから値を取得する関数
     m_limit();
@@ -98,11 +106,16 @@ function m_limit() {
     fetch('./data/data.json')
         .then(response => {
             if (!response.ok) {
+                // .ok はbooleanを返す
+
+                // jsonへのアクセスに失敗したときのエラー
+                // このエラーはcatchで受け取る
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
         .then(data => {
+            // 要はセレクタが一致するところにdata.json値をそれぞれテキストとして配置
             const nameElement = document.querySelector(".name");
             const limElement = document.querySelector(".lim");
 
@@ -117,7 +130,7 @@ function m_limit() {
             location.reload();
         });
 }
-
+// m_limit() が終わったら大本のload_data() に立ち返る
 
 
 function m_value() {
