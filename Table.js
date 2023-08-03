@@ -1,3 +1,4 @@
+// jQueryあり、要編集
 $(function(){
     load_data();
 });
@@ -27,7 +28,7 @@ m_value();
 val = Number($(".val").text());
 lim = Number($(".lim").text());
 
-var url = $('#index_png').attr("src");//画像のurlを取得する
+var url = $("#index_png").attr("src");//画像のurlを取得する
 $('#index_png').attr("src" , url + '?v=${Math.random()}')//キャッシュ回避のためにurlを毎回変える
 
 //valueがlimitを超えたときにtr部分を赤くする

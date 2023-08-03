@@ -1,4 +1,7 @@
-/*ボタンを押したときに、nodedataにnameとvalueを代入する
+// jQueryの編集
+
+/*
+    ボタンを押したときに、nodedataにnameとvalueを代入する
 */
 $(function(){
     $(document).on("click", "#idx", function(event){    
@@ -8,6 +11,7 @@ $(function(){
         save_data(NodeData);//save_dataにNodeDataを渡す
     });
 });
+
 /*
     書き込み用関数
 */
