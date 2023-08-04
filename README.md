@@ -12,7 +12,7 @@ Copyright (c) 2023 Rxxuzi. See [LICENSE](LICENSE) for details.
 
 ## Archive
 
-[JSlog](archive)は使用しなくなった過去のJavaScript/TypeScriptのファイルをアーカイブとして残しています。
+[JSlog](archive) is an archive of past JavaScript/TypeScript files that are no longer in use.
 
 ## Getting Start
 
@@ -28,8 +28,17 @@ To clone this project, execute the following command
 
 | Page Title               | Description                                  |
 |--------------------------|----------------------------------------------|
-| [index](index.html)      | 最初に遷移されるページです<br/>パスワードの入力や Editページへの遷移ができます |
-| [edit](FinalEdit.html)   | 上限値やメーター名を設定・変更するページです                       |
-| [index](FinalIndex.html) | メーターの状況や、現在の値などが確認できるページです                   |
+| [index](index.html)      | This is the first page you will be redirected to<br/>You can enter your password and go to the Edit page. |
+| [edit](FinalEdit.html)   | This page allows you to set or change the upper limit and meter name                     |
+| [index](FinalIndex.html) | This page allows you to check meter status, current values, etc.                  |
 
-## 
+## Server Runner
+
+The following is a script that copies the repository to Apache htdocs and starts the server
+
+Make sure that the directory tree is as follows and execute. 
+If the tree structure is different, edit the following **[Runner](future/server-runner.sh) file**.
+
+~~~bash
+bash ./future/server-runner.sh
+~~~
