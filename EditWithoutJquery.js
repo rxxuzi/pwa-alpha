@@ -36,40 +36,25 @@ document.addEventListener("DOMContentLoaded", function(){
     書き込み用関数
 */
 // 過去記述
-// function save_data(arg){
-//    //ajaxはjsonはつかさどるライブラリ
-//     $.ajax( {
-//         type: 'post', //サーバー（こっち側）にデータを送信
-//         url: './save.php',
-//         data: arg,
-//         //try.catch
-//         success: function(){
-//         // alert('Data saved.');
-//             console.log('Data Saved');
-//         },
-//         error:function(){
-//             alert('Data saving failed.');
-//         }
-//     });
-// }
+function save_data(arg) {
 
-function save_data(arg){
     fetch('./save.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(arg)
-    })
-        .then(response =>{
-            if(!response.ok){
-                throw new Error('Network response was not OK');
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
             console.log('Data Saved');
         })
-        .catch(error =>{
-            alert('Data saving failed:' + error);
-        });
+        .catch(error => {
+            console.error('エラーが発生しました:', error);
+            alert('Data saving failed.');
+        })
+    });
 }
 
 /*
