@@ -1,13 +1,9 @@
 .title{
-    color: tomato;
+    color: blue;
     display: block;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
-}
-
-#table{
-    color: black;
 }
 
 img{
@@ -26,7 +22,14 @@ img{
 body{
     background-color: #e0f0f9;
     margin: 0;
-    padding: 0;
+    font:400 14px 'Calibri','Arial';
+    padding:20px;
+
+}
+
+blockquote {
+    color:white;
+    text-align:center;
 }
 
 .c{
@@ -46,13 +49,46 @@ body{
 }
 
 
-table, td {
-    border: 1px solid #333;
+
+
+table {
+    border-collapse: collapse;
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+table * {
+    position: relative;
+}
+table td, table th {
+    padding-left: 8px;
+
+}
+table thead tr {
+    height: 60px;
+    background: #cacaff;
+    font-size: 16px;
+}
+table tbody tr {
+    height: 48px;
+    border-bottom: 1px solid #E3F1D5;
+}
+table tbody tr:last-child {
+    border: 0;
+}
+table td, table th {
+    text-align: left;
+}
+table td.l, table th.l {
+    text-align: right;
+}
+table td.c, table th.c {
     text-align: center;
 }
-
-
-thead, tfoot {
-    background-color: #333;
-    color: #fff;
+table td.r, table th.r {
+    text-align: center;
 }
